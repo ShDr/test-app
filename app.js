@@ -29,7 +29,7 @@ const server = http.createServer((req, res) => {
 
           // הצגת כל המידע הגולמי
           res.writeHead(200, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify(metadata, null, 2)); // פורמט יפה
+          res.end(metadata); // פורמט יפה
         } catch (err) {
           res.writeHead(500, { 'Content-Type': 'text/plain' });
           res.end('Error parsing metadata');
@@ -45,7 +45,6 @@ const server = http.createServer((req, res) => {
   }
 });
 
-// הרצת השרת על פורט 3000
 const PORT = 80;
 server.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
